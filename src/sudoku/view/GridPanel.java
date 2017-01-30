@@ -4,6 +4,7 @@ import java.awt.Dimension;
 
 import javax.swing.*;
 import sudoku.controller.SudokuController;
+import javax.swing.border.TitledBorder;
 
 public class GridPanel extends JPanel
 {
@@ -14,6 +15,8 @@ public class GridPanel extends JPanel
 	private JLabel colLabel;
 	private JLabel inputLabel;
 	private JButton submitButton;
+	private JTable sudokuGrid;
+	
 	private SpringLayout baseLayout;
 	private SudokuController baseController;
 	
@@ -28,8 +31,14 @@ public class GridPanel extends JPanel
 		this.colLabel = new JLabel("colLabel");
 		this.inputLabel = new JLabel("inputLabel");
 		this.submitButton = new JButton("Submit");
-		this.baseLayout = new SpringLayout();
+		this.sudokuGrid = new JTable();
+		sudokuGrid.setAutoCreateRowSorter(true);
+		sudokuGrid.setBorder(new TitledBorder(null, "Sudoku", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		sudokuGrid.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		sudokuGrid.setCellSelectionEnabled(true);
+		//sudokuGrid.set
 		
+		this.baseLayout = new SpringLayout();
 		this.baseController = baseController;
 		
 		setupPanel();
@@ -49,6 +58,7 @@ public class GridPanel extends JPanel
 		this.add(colLabel);
 		this.add(inputLabel);
 		this.add(submitButton);
+		this.add(sudokuGrid);
 	}
 	
 	private void setupListeners()
