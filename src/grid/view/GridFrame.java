@@ -1,19 +1,19 @@
-package sudoku.view;
+package grid.view;
 
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
-import sudoku.controller.SudokuController;
-import sudoku.view.GridPanel;
+import grid.controller.GridController;
+import grid.view.GridPanel;
 
 public class GridFrame extends JFrame 
 {
-	private SudokuController baseController;
+	private GridController baseController;
 
 	private GridPanel sudokuPanel;
 
-	public GridFrame(SudokuController baseController)
+	public GridFrame(GridController baseController)
 	{
 		super();
 		this.baseController = baseController;
@@ -28,4 +28,10 @@ public class GridFrame extends JFrame
 		this.setSize(new Dimension(900, 600));
 		this.setVisible(true);
 	}
+	
+	public GridController getBaseController() {
+		return baseController;
+	}
+	
+	
 }
