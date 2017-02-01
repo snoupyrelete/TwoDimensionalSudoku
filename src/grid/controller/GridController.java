@@ -24,6 +24,17 @@ public class GridController
 		
 	}
 	
+	private void fillGrid()
+	{
+		for (int row = 0; row < grid.length; row++)
+		{
+			for (int col = 0; col < grid[0].length; col++)
+			{
+				grid[row][col] = new Number(1);
+			}
+		}
+	}
+	
 	public Number[][] getGrid()
 	{
 		return grid;
