@@ -59,6 +59,9 @@ public class GridPanel extends JPanel
 		DefaultTableModel data = new DefaultTableModel(baseController.getGrid(), new String []{"one","two","three","four","five"});
 		sudokuGrid = new JTable();
 		sudokuGrid.setModel(data);
+		sudokuGrid.setRowHeight(30);
+	
+		
 		gridPane = new JScrollPane();
 
 
@@ -124,7 +127,7 @@ public class GridPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.NORTH, submitButton, 6, SpringLayout.SOUTH, inputField);
 		baseLayout.putConstraint(SpringLayout.WEST, submitButton, 24, SpringLayout.WEST, this);
 		sudokuGrid.setAutoCreateRowSorter(true);
-		sudokuGrid.setBorder(new TitledBorder(null, "Sudoku", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		//sudokuGrid.setBorder(new TitledBorder(null, "Sudoku", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		baseLayout.putConstraint(SpringLayout.NORTH, comboBox, 1, SpringLayout.NORTH, submitButton);
 		baseLayout.putConstraint(SpringLayout.WEST, comboBox, 0, SpringLayout.WEST, rowField);
 		baseLayout.putConstraint(SpringLayout.EAST, comboBox, 202, SpringLayout.WEST, this);
