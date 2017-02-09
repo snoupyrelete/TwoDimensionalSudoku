@@ -3,6 +3,8 @@ package grid.view;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import grid.model.*;
+import grid.model.Number;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -56,7 +58,7 @@ public class GridPanel extends JPanel
 	
 	private void setupTable()
 	{
-		DefaultTableModel data = new DefaultTableModel(baseController.getGrid(), new String []{"one","two","three","four","five"});
+		DefaultTableModel data = new DefaultTableModel(baseController.getGrid(), new String []{"one","two","three","four","five","six","seven","eight","nine"});
 		sudokuGrid = new JTable();
 		sudokuGrid.setModel(data);
 		sudokuGrid.setRowHeight(30);
@@ -91,23 +93,16 @@ public class GridPanel extends JPanel
 	
 	private void setupListeners()
 	{
-//		pokedexSelector.addActionListener(new ActionListener()
-//		{
-//				public void actionPerformed(ActionEvent selection)
-//				{
-//					int selected = pokedexSelector.getSelectedIndex();
-//					System.out.println(baseController.getPokedex().get(selected));
-//					nameField.setText(baseController.getPokedex().get(selected).getName());
-//					numberField.setText(baseController.getPokedex().get(selected).getNumber() + "");
-//					combatField.setText(baseController.getPokedex().get(selected).getAttackPoints() + "");
-//					speedField.setText(baseController.getPokedex().get(selected).getSpeed() + "");
-//					healthField.setText(baseController.getPokedex().get(selected).getHitPoints() + "");
-//					advancedArea.setText(baseController.getPokedex().get(selected).getPokemonInformation() + "\n" + baseController.getPokedex().get(selected).getPokemonTypes());
-//					
-//					changeColorBasedOnType(baseController.getPokedex().get(selected).getPokemonTypes());
-//					changeImageDisplay(baseController.getPokedex().get(selected).getClass().getSimpleName());
-//				}
-//		});
+		submitButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				int row = Integer.parseInt(rowField.getText());
+				int col = Integer.parseInt(colField.getText());
+				
+				baseController.getGrid()[row][col].setNumber(Integer.parseInt(inputField.getText()));
+			}
+		});
 	}
 	
 	private void setupLayout()
